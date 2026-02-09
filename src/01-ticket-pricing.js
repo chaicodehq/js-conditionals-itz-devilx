@@ -23,12 +23,11 @@
  * @returns {number} The ticket price, or -1 for invalid input
  */
 export function getTicketPrice(age, isWeekend) {
-  // Your code here
-  if(typeof age != 'number'){
+  if(typeof age != 'number' || age < 0){
     return -1;
   }
   else if(age >=0 && age <= 12){
-   return (isWeekend ? 8+3 : 8);
+    return (isWeekend ? 8+3 : 8);
   }
   else if(age >= 13 && age <= 17){
     return (isWeekend ? 12+3 : 12);
@@ -38,4 +37,5 @@ export function getTicketPrice(age, isWeekend) {
   }
   else{
     return (isWeekend ? 10+3 : 10);
+  }
 }
