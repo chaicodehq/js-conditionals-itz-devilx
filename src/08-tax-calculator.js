@@ -26,5 +26,26 @@
  * @returns {number} Total tax amount owed
  */
 export function calculateTax(income) {
-  // Your code here
+  if(income <= 0){
+    return 0;
+  }
+  else if(income <= 10000){
+    return 0;
+  }
+  else if(income >= 10001 && income <= 30000){
+    // 10000 is free of tax
+    income = income - 10000;
+    return (income * 10)/100 ;
+  }
+  else if(income >= 30001 && income <= 70000){
+    // first 10000 is free // 10% of 20000 = 2000
+    income = income - 30000;
+    return (income * 20)/100 + 2000;
+  }
+  else{
+    // first 10000 is free // 10% of 20000 = 2000 // 20% of 40000 = 8000
+    income = income - 70000
+    return (income * 30)/100 + 2000 + 8000;
+  }
+
 }
